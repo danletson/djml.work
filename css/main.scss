@@ -1,39 +1,97 @@
 ---
-# Only the main Sass file needs front matter (the dashes are enough)
+#
 ---
-@charset "utf-8";
 
-// Our variables
-$base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-size:   16px;
-$base-font-weight: 400;
-$small-font-size:  $base-font-size * 0.875;
-$base-line-height: 1.5;
+body{
+    padding: 2rem;
+    font-family: serif;
+}
 
-$spacing-unit:     30px;
+.background-container{
+    z-index: -1;
+}
 
-$text-color:       #111;
-$background-color: #fdfdfd;
-$brand-color:      #2a7ae2;
+@mixin panel($pad){
+    background: white;
+    padding: $pad;
+    border: 1px solid black;
+}
+@mixin condensed(){
+    font-family: "acumin-pro-extra-condensed";
+    font-weight: bold;
+}
+@mixin wide(){
+    font-family: "acumin-pro-wide";
+    font-weight: bold;
+}
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+header{
+    @include panel(2rem);
+    display: inline-block;
+    h1{
+        @include condensed();
+        margin: 0 auto;
+        line-height: 1;
+        a{
+            @include wide();
+            text-decoration: none;
+            &:visited{
+                color: blue;
+            }
+        }
+    }
+}
+.post{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    .post__image{
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 20rem;
+        border: 1px solid black;
+        height: 20rem;
+        img{
+            position:absolute;
+            top:0;
+            left:0;
+            width: 100%;
+        }
+    }
+    .post__meta{
+        position:absolute;
+        top: -3rem;
+        right: -2rem;
+        z-index: 10;
+        @include panel(1rem);
+        display: inline-block;
+        time{
+            @include wide();
+            font-size: 1.5rem;
+        }
+    }
+    .post__content{
+        position: absolute;
+        bottom: 0;
+        width: 20rem;
+        @include panel(2rem);
+        h3.post__title{
+            margin: 0;
+            @include condensed();
+            font-size: 2rem;
+            line-height: 1;
+        }
+        p{
+            margin-bottom: 0;
+        }
+        .text-cta{
+            @include wide();
+            text-decoration: none;
+        }
+    }
+}
 
-// Width of the content area
-$content-width:    800px;
 
-$on-palm:          600px;
-$on-laptop:        800px;
 
-// Minima also includes a mixin for defining media queries.
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-
-// Import partials from the `minima` theme.
 @import "minima";
