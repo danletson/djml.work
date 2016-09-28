@@ -12,8 +12,8 @@ layout: default
     {{ content }}
   </div>
 
-  {% for category in page.categories %}
-    <p>{{category}}</p>
+  {% for tag in page.tags %}
+    <p>{{tag}}</p>
   {% endfor %}
 
   {% if site.disqus.shortname %}

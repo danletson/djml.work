@@ -20,6 +20,11 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site
 twitter_username: danletson
 github_username:  danletson
+permalink: none
+
+image: ""
+artist: DJML
+twitter_card_format: summary
 
 # Build settings
 markdown: kramdown
